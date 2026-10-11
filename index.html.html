@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FanConvert | #1 AI Funnel & Monetization Engine for Creators</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fbf7ff',
+                            100: '#f4edff',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            900: '#4c1d95',
+                        },
+                        dark: {
+                            900: '#0b0f19',
+                            800: '#111827',
+                            700: '#1f293d',
+                            600: '#374151'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #f43f5e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-border {
+            border: 1px solid transparent;
+            background: linear-gradient(#111827, #111827) padding-box,
+                        linear-gradient(135deg, rgba(168, 85, 247, 0.4), rgba(236, 72, 153, 0.4)) border-box;
+        }
+        .glow-purple {
+            box-shadow: 0 0 50px -10px rgba(139, 92, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-slate-100 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-dark-900/80 backdrop-blur-md border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="scrollToSection('hero')">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-pink-500 flex items-center justify-center font-black text-xl shadow-lg shadow-brand-500/20">
+                    ⚡
+                </div>
+                <span class="font-bold text-2xl tracking-tight">Fan<span class="gradient-text">Convert</span></span>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#features" class="hover:text-white transition">Features</a>
+                <a href="#demo" class="hover:text-white transition">Live Preview</a>
+                <a href="#pricing" class="hover:text-white transition">Pricing</a>
+                <a href="#deployment" class="hover:text-white transition flex items-center gap-1.5 text-brand-500 font-semibold">
+                    <i data-lucide="terminal" class="w-4 h-4"></i> Deploy Guide
+                </a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center space-x-4">
+                <button onclick="openLegalModal('terms')" class="hidden sm:inline-block text-xs text-slate-400 hover:text-slate-200">Legal</button>
+                <button onclick="openSignupModal('Free Trial')" class="bg-gradient-to-r from-brand-600 to-pink-600 hover:from-brand-500 hover:to-pink-500 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-brand-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]">
+                    Get Started Free
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative pt-16 pb-24 overflow-hidden">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-600/15 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-semibold text-brand-500 mb-8 backdrop-blur-sm">
+                <span class="flex h-2 w-2 rounded-full bg-brand-500 animate-ping"></span>
+                v2.4 Engine Live • Auto-DM & AI Clipping Enabled
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.1] max-w-5xl mx-auto">
+                Turn Social Views Into <span class="gradient-text">Paid Subscribers</span> Automatically
+            </h1>
+            
+            <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto font-normal leading-relaxed">
+                The all-in-one automated growth engine built for creators and agencies. Safely bypass social link bans, auto-dm Instagram reel commenters, and blur teasers in 1 click.
+            </p>
+
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="openSignupModal('14-Day Free Trial')" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-600 to-pink-600 text-white font-bold rounded-xl shadow-xl shadow-brand-600/30 hover:scale-105 transition duration-200 text-base">
+                    🚀 Start 14-Day Free Trial
+                </button>
+                <button onclick="scrollToSection('deployment')" class="w-full sm:w-auto px-8 py-4 bg-dark-800 border border-slate-700 text-slate-200 hover:text-white font-semibold rounded-xl hover:bg-slate-800 transition duration-200 text-base flex items-center justify-center gap-2">
+                    <i data-lucide="rocket" class="w-5 h-5 text-brand-500"></i> Go Live Checklist
+                </button>
+            </div>
+
+            <!-- Social Proof Bar -->
+            <div class="mt-12 flex items-center justify-center gap-8 text-xs text-slate-400">
+                <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> No Credit Card Required</div>
+                <div class="flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i> Meta API Compliant</div>
+                <div class="flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-emerald-400"></i> 2-Min Setup</div>
+            </div>
+        </div>
+
+        <!-- Interactive Dashboard Mockup Preview -->
+        <section id="demo" class="mt-16 max-w-6xl mx-auto px-4">
+            <div class="gradient-border rounded-2xl p-2 bg-dark-800/80 shadow-2xl glow-purple">
+                <div class="bg-dark-900 rounded-xl overflow-hidden border border-slate-800">
+                    <!-- Dashboard Top Bar Header -->
+                    <div class="bg-dark-800 p-4 border-b border-slate-800 flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 rounded-full bg-rose-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                            <span class="text-xs text-slate-500 ml-4 font-mono">dashboard.fanconvert.app/overview</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">● Live Engine Running</span>
+                        </div>
+                    </div>
+
+                    <!-- App UI Canvas Simulation -->
+                    <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Stat Card 1 -->
+                        <div class="bg-dark-800/60 p-5 rounded-xl border border-slate-800">
+                            <div class="text-xs text-slate-400 mb-1">Total Conversions</div>
+                            <div class="text-2xl font-bold text-white">$14,290.00</div>
+                            <div class="text-xs text-emerald-400 mt-2 flex items-center gap-1"><i data-lucide="trending-up" class="w-3 h-3"></i> +32.4% vs last week</div>
+                        </div>
+                        <!-- Stat Card 2 -->
+                        <div class="bg-dark-800/60 p-5 rounded-xl border border-slate-800">
+                            <div class="text-xs text-slate-400 mb-1">Auto-DMs Triggered</div>
+                            <div class="text-2xl font-bold text-white">3,842</div>
+                            <div class="text-xs text-emerald-400 mt-2 flex items-center gap-1"><i data-lucide="zap" class="w-3 h-3"></i> 99.8% delivery rate</div>
+                        </div>
+                        <!-- Stat Card 3 -->
+                        <div class="bg-dark-800/60 p-5 rounded-xl border border-slate-800">
+                            <div class="text-xs text-slate-400 mb-1">Active Smart Shields</div>
+                            <div class="text-2xl font-bold text-white">12 Links Safe</div>
+                            <div class="text-xs text-brand-500 mt-2 flex items-center gap-1"><i data-lucide="shield" class="w-3 h-3"></i> 0 Shadowbans reported</div>
+                        </div>
+
+                        <!-- Real-time Activity Feed Simulation -->
+                        <div class="md:col-span-2 bg-dark-800/40 p-5 rounded-xl border border-slate-800">
+                            <h4 class="text-sm font-semibold text-slate-300 mb-4 flex items-center gap-2">
+                                <i data-lucide="activity" class="w-4 h-4 text-brand-500"></i> Real-time Funnel Activity
+                            </h4>
+                            <div class="space-y-3 font-mono text-xs">
+                                <div class="flex justify-between items-center bg-dark-900/60 p-3 rounded-lg border border-slate-800">
+                                    <span class="text-slate-300">New DM Trigger: <span class="text-brand-400">@sarah_fit</span> commented "LINK"</span>
+                                    <span class="text-emerald-400">Auto-sent VIP Link (1s ago)</span>
+                                </div>
+                                <div class="flex justify-between items-center bg-dark-900/60 p-3 rounded-lg border border-slate-800">
+                                    <span class="text-slate-300">AI Clip Generated: <span class="text-pink-400">teaser_vid_90.mp4</span></span>
+                                    <span class="text-slate-400">Blurred & Cropped (12s ago)</span>
+                                </div>
+                                <div class="flex justify-between items-center bg-dark-900/60 p-3 rounded-lg border border-slate-800">
+                                    <span class="text-slate-300">Whale Alert: <span class="text-amber-400">User #8930</span> spent $250</span>
+                                    <span class="text-emerald-400">Tagged High Priority</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Teaser Quick Tool Mock -->
+                        <div class="bg-dark-800/40 p-5 rounded-xl border border-slate-800 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-300 mb-2">1-Click AI Teaser Studio</h4>
+                                <p class="text-xs text-slate-400 mb-4">Upload raw content to auto-generate TikTok safe previews with smart blurs.</p>
+                                <div class="border-2 border-dashed border-slate-700 rounded-lg p-6 text-center cursor-pointer hover:border-brand-500 transition">
+                                    <i data-lucide="upload-cloud" class="w-8 h-8 text-brand-500 mx-auto mb-2"></i>
+                                    <span class="text-xs text-slate-300 font-medium">Drop MP4 video here</span>
+                                </div>
+                            </div>
+                            <button onclick="openSignupModal('AI Studio')" class="w-full mt-4 py-2 bg-brand-600 hover:bg-brand-500 text-xs font-semibold rounded-lg text-white">Process Video</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Core Features Grid -->
+    <section id="features" class="py-24 bg-dark-800/30 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Engineered For Exponential Monetization</h2>
+                <p class="mt-4 text-slate-400">Eliminate hours of busywork every day while protecting your brand and scaling revenue.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-8 rounded-2xl bg-dark-800/60 border border-slate-800 hover:border-brand-500/50 transition">
+                    <div class="w-12 h-12 rounded-xl bg-brand-600/10 text-brand-500 flex items-center justify-center mb-6 border border-brand-500/20">
+                        <i data-lucide="shield" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">SmartShield Link Protection</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Dynamic link wrapping and safe routing prevents Instagram and TikTok algorithm shadowbans while maintaining 100% conversion tracking.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-8 rounded-2xl bg-dark-800/60 border border-slate-800 hover:border-brand-500/50 transition">
+                    <div class="w-12 h-12 rounded-xl bg-pink-600/10 text-pink-500 flex items-center justify-center mb-6 border border-pink-500/20">
+                        <i data-lucide="scissors" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">1-Click AI Teaser Studio</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Upload raw footage and instantly generate cropped vertical teasers with intelligent auto-blurs, auto-captions, and platform compliance checks.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-8 rounded-2xl bg-dark-800/60 border border-slate-800 hover:border-brand-500/50 transition">
+                    <div class="w-12 h-12 rounded-xl bg-purple-600/10 text-purple-400 flex items-center justify-center mb-6 border border-purple-500/20">
+                        <i data-lucide="message-square" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Smart Auto-DM Engine</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Automatically send targeted signup links to fans who comment key terms on your Reels or posts, turning engagements into sales instantly.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="p-8 rounded-2xl bg-dark-800/60 border border-slate-800 hover:border-brand-500/50 transition">
+                    <div class="w-12 h-12 rounded-xl bg-amber-600/10 text-amber-500 flex items-center justify-center mb-6 border border-amber-500/20">
+                        <i data-lucide="crown" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Whale Tracker CRM</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Identify and automatically tag high-spending subscribers so your chat team can prioritize VIP conversations and high-ticket PPVs.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="p-8 rounded-2xl bg-dark-800/60 border border-slate-800 hover:border-brand-500/50 transition">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-600/10 text-emerald-500 flex items-center justify-center mb-6 border border-emerald-500/20">
+                        <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">ChurnGuard Retention</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Automated re-engagement sequences and win-back offers for expiring subscribers to stabilize monthly recurring income.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="p-8 rounded-2xl bg-dark-800/60 border border-slate-800 hover:border-brand-500/50 transition">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-600/10 text-cyan-400 flex items-center justify-center mb-6 border border-cyan-500/20">
+                        <i data-lucide="users" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Agency Roster Multi-Seat</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Seamlessly switch between multiple creator accounts from a single master dashboard. Perfect for management agencies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Table -->
+    <section id="pricing" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Simple, Transparent Pricing</h2>
+                <p class="mt-4 text-slate-400">Choose the plan that fits your creator scale. Cancel or change anytime.</p>
+                
+                <!-- Toggle -->
+                <div class="mt-8 flex items-center justify-center gap-4">
+                    <span class="text-sm font-medium text-slate-400">Monthly Billing</span>
+                    <button id="billingToggle" onclick="toggleBilling()" class="w-14 h-8 bg-brand-600 rounded-full p-1 transition duration-200 focus:outline-none">
+                        <div id="toggleCircle" class="w-6 h-6 bg-white rounded-full translate-x-6 transition duration-200"></div>
+                    </button>
+                    <span class="text-sm font-medium text-white flex items-center gap-1.5">
+                        Annual Billing <span class="text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full">Save 20%</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Starter Plan -->
+                <div class="bg-dark-800/50 rounded-2xl border border-slate-800 p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-white">Solo Starter</h3>
+                        <p class="text-slate-400 text-xs mt-1">For independent creators scaling up.</p>
+                        <div class="mt-6">
+                            <span class="text-4xl font-extrabold text-white plan-price" data-monthly="$29" data-annual="$23">$23</span>
+                            <span class="text-slate-400 text-sm">/month</span>
+                        </div>
+                        <ul class="mt-8 space-y-4 text-sm text-slate-300">
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> 1 Creator Account</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> 100 AI Teaser Renders/mo</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> SmartShield Link Protection</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Auto-DM (500 triggers/mo)</li>
+                        </ul>
+                    </div>
+                    <button onclick="openCheckoutModal('Solo Starter', '$23')" class="mt-8 w-full py-3 bg-dark-700 hover:bg-slate-700 text-white font-semibold rounded-xl transition">
+                        Start Starter Trial
+                    </button>
+                </div>
+
+                <!-- Pro Plan (Featured) -->
+                <div class="bg-dark-800/90 rounded-2xl border-2 border-brand-500 p-8 flex flex-col justify-between relative shadow-2xl glow-purple">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        Most Popular
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white">Creator Pro</h3>
+                        <p class="text-slate-400 text-xs mt-1">For serious creators maximizing ROI.</p>
+                        <div class="mt-6">
+                            <span class="text-4xl font-extrabold text-white plan-price" data-monthly="$79" data-annual="$63">$63</span>
+                            <span class="text-slate-400 text-sm">/month</span>
+                        </div>
+                        <ul class="mt-8 space-y-4 text-sm text-slate-300">
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Up to 3 Creator Accounts</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Unlimited AI Teasers</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Unlimited Auto-DM Engine</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Whale Tracker CRM Integration</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Priority Support</li>
+                        </ul>
+                    </div>
+                    <button onclick="openCheckoutModal('Creator Pro', '$63')" class="mt-8 w-full py-3 bg-gradient-to-r from-brand-600 to-pink-600 hover:from-brand-500 hover:to-pink-500 text-white font-bold rounded-xl shadow-lg transition">
+                        Get Creator Pro
+                    </button>
+                </div>
+
+                <!-- Agency Plan -->
+                <div class="bg-dark-800/50 rounded-2xl border border-slate-800 p-8 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-white">Agency Roster</h3>
+                        <p class="text-slate-400 text-xs mt-1">For agencies managing rosters.</p>
+                        <div class="mt-6">
+                            <span class="text-4xl font-extrabold text-white plan-price" data-monthly="$199" data-annual="$159">$159</span>
+                            <span class="text-slate-400 text-sm">/month</span>
+                        </div>
+                        <ul class="mt-8 space-y-4 text-sm text-slate-300">
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Up to 25 Accounts</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Multi-Seat Manager Access</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Custom Webhook & API Key</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-brand-500"></i> Dedicated Account Manager</li>
+                        </ul>
+                    </div>
+                    <button onclick="openCheckoutModal('Agency Roster', '$159')" class="mt-8 w-full py-3 bg-dark-700 hover:bg-slate-700 text-white font-semibold rounded-xl transition">
+                        Contact Agency Team
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deployment & Launch Checklist Section -->
+    <section id="deployment" class="py-20 bg-dark-800/80 border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2 bg-brand-600/20 text-brand-500 rounded-lg">
+                    <i data-lucide="rocket" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white">Production Launch Guide & Checklist</h2>
+                    <p class="text-xs text-slate-400">Step-by-step technical requirements to make FanConvert live on your custom domain.</p>
+                </div>
+            </div>
+
+            <!-- Tab Navigation for Deployment Steps -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+                <button onclick="switchDeployTab('hosting')" class="deploy-tab-btn active p-4 rounded-xl border border-brand-500 bg-brand-600/10 text-left text-xs font-semibold text-white">
+                    1. Hosting & Vercel
+                </button>
+                <button onclick="switchDeployTab('domain')" class="deploy-tab-btn p-4 rounded-xl border border-slate-800 bg-dark-900 text-left text-xs font-semibold text-slate-400">
+                    2. Domain & DNS
+                </button>
+                <button onclick="switchDeployTab('payments')" class="deploy-tab-btn p-4 rounded-xl border border-slate-800 bg-dark-900 text-left text-xs font-semibold text-slate-400">
+                    3. Stripe Payments
+                </button>
+                <button onclick="switchDeployTab('apis')" class="deploy-tab-btn p-4 rounded-xl border border-slate-800 bg-dark-900 text-left text-xs font-semibold text-slate-400">
+                    4. Meta/IG Webhooks
+                </button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div id="deploy-content" class="bg-dark-900 rounded-2xl p-6 border border-slate-800 font-mono text-xs">
+                <!-- Content injected dynamically via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-slate-800 py-12 text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 rounded-md bg-brand-600 flex items-center justify-center font-bold text-white text-xs">⚡</div>
+                <span class="font-bold text-slate-300 text-sm">FanConvert Engine</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <button onclick="openLegalModal('terms')" class="hover:text-slate-300">Terms of Service</button>
+                <button onclick="openLegalModal('privacy')" class="hover:text-slate-300">Privacy Policy</button>
+                <a href="#deployment" class="hover:text-slate-300">System Status</a>
+            </div>
+            <div>
+                © 2026 FanConvert Technologies Inc. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Signup / Onboarding Modal -->
+    <div id="signupModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-dark-800 border border-slate-700 rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeModal('signupModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h3 class="text-xl font-bold text-white mb-2">Create Your Account</h3>
+            <p class="text-xs text-slate-400 mb-6">Start your 14-day free trial. No credit card required.</p>
+
+            <form id="signupForm" onsubmit="handleSignup(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Full Name or Agency Name</label>
+                    <input type="text" required placeholder="e.g. Alexis VIP Studio" class="w-full bg-dark-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Work Email</label>
+                    <input type="email" required placeholder="alexis@creator.com" class="w-full bg-dark-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Primary Platform</label>
+                    <select class="w-full bg-dark-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-500">
+                        <option>Instagram + OnlyFans</option>
+                        <option>TikTok + Fansly</option>
+                        <option>Management Agency (Multiple Roster)</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full py-3 bg-gradient-to-r from-brand-600 to-pink-600 text-white font-bold text-xs rounded-lg hover:opacity-90 transition">
+                    Create FanConvert Account 🚀
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Payment Checkout Modal Simulator -->
+    <div id="checkoutModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-dark-800 border border-slate-700 rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+            <button onclick="closeModal('checkoutModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="flex items-center justify-between mb-4 pb-4 border-b border-slate-700">
+                <div>
+                    <h3 id="checkoutPlanName" class="text-lg font-bold text-white">Creator Pro</h3>
+                    <p class="text-xs text-slate-400">14-Day Free Trial included</p>
+                </div>
+                <div id="checkoutPrice" class="text-2xl font-black text-brand-400">$63/mo</div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="p-3 bg-dark-900 rounded-lg border border-slate-800 text-xs text-slate-300 flex items-center justify-between">
+                    <span>Payment Processor:</span>
+                    <span class="text-emerald-400 flex items-center gap-1 font-mono"><i data-lucide="lock" class="w-3 h-3"></i> Stripe Secure</span>
+                </div>
+                <input type="text" placeholder="Cardholder Name" class="w-full bg-dark-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white">
+                <input type="text" placeholder="Card Number (•••• •••• •••• 4242)" class="w-full bg-dark-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white">
+                <div class="grid grid-cols-2 gap-3">
+                    <input type="text" placeholder="MM/YY" class="bg-dark-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white">
+                    <input type="text" placeholder="CVC" class="bg-dark-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white">
+                </div>
+                <button onclick="simulatePaymentSuccess()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-lg transition">
+                    Activate Subscription Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Legal Documents Modal (Terms & Privacy) -->
+    <div id="legalModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+        <div class="bg-dark-800 border border-slate-700 rounded-2xl max-w-2xl w-full p-6 shadow-2xl relative max-h-[80vh] flex flex-col">
+            <button onclick="closeModal('legalModal')" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h3 id="legalTitle" class="text-xl font-bold text-white mb-4">Terms of Service</h3>
+            <div id="legalBody" class="overflow-y-auto text-xs text-slate-300 space-y-4 pr-2 font-normal leading-relaxed">
+                <!-- Injected Legal Text -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Scroll helper
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Toggle Billing Logic
+        let isAnnual = true;
+        function toggleBilling() {
+            isAnnual = !isAnnual;
+            const circle = document.getElementById('toggleCircle');
+            const prices = document.querySelectorAll('.plan-price');
+
+            if (isAnnual) {
+                circle.classList.add('translate-x-6');
+                prices.forEach(el => el.textContent = el.getAttribute('data-annual'));
+            } else {
+                circle.classList.remove('translate-x-6');
+                prices.forEach(el => el.textContent = el.getAttribute('data-monthly'));
+            }
+        }
+
+        // Modal Handlers
+        function openSignupModal(plan) {
+            document.getElementById('signupModal').classList.remove('hidden');
+        }
+
+        function openCheckoutModal(planName, price) {
+            document.getElementById('checkoutPlanName').textContent = planName;
+            document.getElementById('checkoutPrice').textContent = price + '/mo';
+            document.getElementById('checkoutModal').classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        function handleSignup(e) {
+            e.preventDefault();
+            alert('🎉 Demo Account Created! In a live environment, you would now be redirected to your custom FanConvert portal dashboard.');
+            closeModal('signupModal');
+        }
+
+        function simulatePaymentSuccess() {
+            alert('✅ Payment Authorized! Welcome to FanConvert Pro.');
+            closeModal('checkoutModal');
+        }
+
+        // Deployment Tab Switcher logic
+        const deployData = {
+            hosting: `
+<span class="text-brand-400">// 1. VERCEL / NETLIFY DEPLOYMENT</span>
+1. Push your single-file application code or React repository to GitHub.
+2. Sign in to Vercel (vercel.com) or Netlify.
+3. Click "Import Project" -> Select your repository.
+4. Set Build Command: <span class="text-emerald-400">npm run build</span> (or static output).
+5. Click "Deploy". Your app will be live at: <span class="text-amber-300">https://fanconvert.vercel.app</span>
+`,
+            domain: `
+<span class="text-brand-400">// 2. CUSTOM DOMAIN DNS CONFIGURATION</span>
+To connect your custom domain (e.g. www.fanconvert.app):
+1. Navigate to your domain registrar (Namecheap / Cloudflare).
+2. Add DNS Records:
+   - Type: A Record | Name: @ | Value: 76.76.21.21 (Vercel IP)
+   - Type: CNAME | Name: www | Value: cname.vercel-dns.com
+3. SSL Certificates will auto-issue via Let's Encrypt within 5 minutes.
+`,
+            payments: `
+<span class="text-brand-400">// 3. STRIPE PAYMENTS INTEGRATION</span>
+1. Go to dashboard.stripe.com -> API Keys.
+2. Add your environment keys to your hosting platform:
+   - NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...
+   - STRIPE_SECRET_KEY=sk_live_...
+3. Set Webhook Endpoint: https://yourdomain.com/api/webhooks/stripe
+`,
+            apis: `
+<span class="text-brand-400">// 4. META & INSTAGRAM GRAPH API SETUP</span>
+1. Register app on developers.facebook.com.
+2. Request permissions: <span class="text-slate-300 font-bold">instagram_manage_messages, pages_messaging</span>.
+3. Add Instagram Webhook URL for real-time comment and direct message triggers.
+`
+        };
+
+        function switchDeployTab(tab) {
+            document.querySelectorAll('.deploy-tab-btn').forEach(btn => {
+                btn.classList.remove('border-brand-500', 'bg-brand-600/10', 'text-white');
+                btn.classList.add('border-slate-800', 'bg-dark-900', 'text-slate-400');
+            });
+            event.currentTarget.classList.remove('border-slate-800', 'bg-dark-900', 'text-slate-400');
+            event.currentTarget.classList.add('border-brand-500', 'bg-brand-600/10', 'text-white');
+            
+            document.getElementById('deploy-content').innerHTML = `<pre>${deployData[tab]}</pre>`;
+        }
+
+        // Initialize default tab
+        document.getElementById('deploy-content').innerHTML = `<pre>${deployData.hosting}</pre>`;
+
+        // Legal Modal Logic
+        function openLegalModal(type) {
+            const title = document.getElementById('legalTitle');
+            const body = document.getElementById('legalBody');
+            
+            if(type === 'terms') {
+                title.textContent = "Terms of Service";
+                body.innerHTML = `
+                    <p><strong>1. Acceptance of Terms:</strong> By creating an account or subscribing to FanConvert, you agree to comply with all platform guidelines and social network terms of service.</p>
+                    <p><strong>2. Automated Automation Tools:</strong> FanConvert provides workflow optimization scripts for social marketing. Users remain responsible for ensuring their published content complies with local legislation and social media platform policies.</p>
+                    <p><strong>3. Subscriptions & Billing:</strong> Subscription fees are charged on a monthly or annual recurring basis. You may cancel your subscription at any time via your account settings page.</p>
+                `;
+            } else {
+                title.textContent = "Privacy Policy";
+                body.innerHTML = `
+                    <p><strong>1. Data Collection:</strong> We collect minimal necessary data including account email, connected social handles, and funnel performance metrics to provide real-time conversion analytics.</p>
+                    <p><strong>2. Data Protection:</strong> FanConvert encrypts all API access keys and client communications using industry-standard TLS/SSL encryption. We never sell creator or subscriber data to third parties.</p>
+                `;
+            }
+            document.getElementById('legalModal').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
